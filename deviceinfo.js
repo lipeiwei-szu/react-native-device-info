@@ -7,12 +7,12 @@ var Platform = require('react-native').Platform;
 
 module.exports = {
   getUniqueID: function () {
-    if (Platform.OS === 'android') {
-      return console.error('not support uniqueId in android')
-    }
     return RNDeviceInfo.uniqueId;
   },
   getInstanceID: function() {
+    if (Platform.OS === 'android') {
+      return console.error('not support instanceId in android')
+    }
     return RNDeviceInfo.instanceId;
   },
   getDeviceId: function () {
