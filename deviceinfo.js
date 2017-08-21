@@ -3,9 +3,13 @@
  */
 
 var RNDeviceInfo = require('react-native').NativeModules.RNDeviceInfo;
+var Platform = require('react-native').Platform;
 
 module.exports = {
   getUniqueID: function () {
+    if (Platform.OS === 'android') {
+      return console.error('not support uniqueId in android')
+    }
     return RNDeviceInfo.uniqueId;
   },
   getInstanceID: function() {
